@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Welcome, <%= @user.username %>!</strong>
+</p>
+
+<%= @user.pets do |pet| %>
+  <p>
+    <img class="pet-pic" src="../assets/images/#{pet.image}">
+  </p>
+
+  <p>
+    <strong><%= pet.name %>!</strong>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_user_path(@user, @user.pets.first) %> |
+<%= link_to 'Add another pet', new_pet_path %> | 
+<%= link_to 'Pet Pix', pets_path %>

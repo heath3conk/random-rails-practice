@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pets We Know</h1>
+
+<ul>
+    <% @pets.each do |pet| %>
+      <li class="pet-info">
+        <strong><%= pet.name %></strong> the <%= pet.animal_type %> is <%= pet.age %>
+        <p>
+          <img class="pet-pic" src="../../assets/images/<%= pet.image %>">
+        </p>
+        <%= link_to 'Show', pet %>
+        <%= link_to 'Edit', edit_pet_path(pet) %>
+        <%= link_to 'Send to the farm', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+</ul>
+
+<br>
+
+<% if !logged_in? %>
+  <%= link_to 'Login', session_new_path %>
+  <%= link_to 'Register', new_user_path %>
+
+<% else %>
+  <%= link_to 'New Pet', new_pet_path %>
+<% end %>
