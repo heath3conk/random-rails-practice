@@ -4,9 +4,9 @@
   <strong>Welcome, <%= @user.username %>!</strong>
 </p>
 
-<%= @user.pets do |pet| %>
+<% @user.pets.each do |pet| %>
   <p>
-    <img class="pet-pic" src="../assets/images/#{pet.image}">
+    <img class="pet-picture" src="<%= pet.image %>">
   </p>
 
   <p>
@@ -15,6 +15,7 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_user_path(@user, @user.pets.first) %> |
-<%= link_to 'Add another pet', new_pet_path %> | 
-<%= link_to 'Pet Pix', pets_path %>
+<%= link_to 'Edit User Info', edit_user_path %> |
+<%= link_to 'Add Another Pet', new_pet_path %> | 
+<%= link_to 'All Pet Pix', pets_path %> |
+<%= link_to 'Logout', logout_path %>

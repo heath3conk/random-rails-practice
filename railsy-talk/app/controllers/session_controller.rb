@@ -14,7 +14,7 @@ class SessionController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    redirect_to session_new_url
+    redirect_to pets_url
   end
 
   private

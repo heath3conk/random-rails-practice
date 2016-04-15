@@ -17,9 +17,11 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @pet.image %>
+  <img class="pet-picture" src="<%= @pet.image %>">
 </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<% if current_user == @pet.owner %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% end %>
+
+<%= link_to 'Pet Index', pets_path %>
