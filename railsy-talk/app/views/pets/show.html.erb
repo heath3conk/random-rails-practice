@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @pet.animal_type %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @pet.age %>
+</p>
+
+<p>
+  <img class="pet-picture" src="<%= @pet.image %>">
+</p>
+
+<% if current_user == @pet.owner %>
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+<% end %>
+
+<%= link_to 'Pet Index', pets_path %>

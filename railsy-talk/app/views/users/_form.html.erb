@@ -1,0 +1,58 @@
+<%= form_for(setup_user(@user)) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Password" %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.fields_for :pets do |ff| %>
+    <div class="pet-info-collection">
+      <%= ff.label :name, "Pet name" %><br>
+      <%= ff.text_field :name %>
+    </div>
+    <div>
+      <%= ff.label :animal_type, "Pet type" %><br>
+      <%= ff.text_field :animal_type %>
+    </div>
+    <div>
+      <%= ff.label :age, "Pet age" %><br>
+      <%= ff.text_field :age %>
+    </div>
+    <div>
+      <%= ff.label :image %><br>
+      <%= ff.text_field :image %><br>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

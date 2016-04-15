@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Welcome, <%= @user.username %>!</strong>
+</p>
+
+<% @user.pets.each do |pet| %>
+  <p>
+    <img class="pet-picture" src="<%= pet.image %>">
+  </p>
+
+  <p>
+    <strong><%= pet.name %>!</strong>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit User Info', edit_user_path %> |
+<%= link_to 'Add Another Pet', new_pet_path %> | 
+<%= link_to 'All Pet Pix', pets_path %> |
+<%= link_to 'Logout', logout_path %>
