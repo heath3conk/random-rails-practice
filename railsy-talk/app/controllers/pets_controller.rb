@@ -17,15 +17,16 @@ class PetsController < ApplicationController
 
   def create
     @pet = current_user.pets.new(pet_params)
-    if @pet.name != ""
-      if @pet.save
+    if @pet.name == ""
+      @pet.destroy
+    elsif @pet.save
         redirect_to @pet, notice: 'Pet was successfully created.' 
-      else
-        render :new 
-      end
     else
-      redirect_to pets_url
+      render :new 
     end
+    # else
+    #   redirect_to pets_url
+    # end
   end
 
   def update
